@@ -157,7 +157,7 @@ INSERT INTO Participants (BookingNumber, SequenceNumber, Name, Gender, BirthDate
 (3, 1, 'Sam Brown', 'Male', '1978-03-10');
 
 -- the line below is to view the table
--- just remove the "--" symbol
+-- just remove the "--" symbol to select and view a table
 -- select * from cities;
 -- select * from Accommodations;
 -- select * from TravelOptions;
