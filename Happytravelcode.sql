@@ -1,5 +1,5 @@
 -- Create the database for happytravel
--- This line can be changed to comment when the database has been created
+-- This line can be changed to comment (--) when the database has been created
 CREATE DATABASE happytravel;
 
 -- Use the database
