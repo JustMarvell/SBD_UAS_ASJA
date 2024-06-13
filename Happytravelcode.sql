@@ -167,9 +167,9 @@ INSERT INTO Participants (BookingNumber, SequenceNumber, Name, Gender, BirthDate
 -- select * from Participants;
 
 /*
-ASJA
-Accuire
-Strive
-Joyfull
-Accomplish
+   Kelompok ASJA
+- Acquire
+- Strive
+- Joyfull
+- Accomplish
 */
