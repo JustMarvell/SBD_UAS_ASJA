@@ -1,18 +1,32 @@
--- Create the database for happytravel
--- This line can be changed to comment (--) when the database has been created
+/* 
+(en)
+Create the database for happytravel
+The line below can be changed to comment (--) when the database has been created
+(ID)
+Buat database untuk  happytravel
+baris dibawah dapat diubah ke comment (--) ketika database telah dibuat
+*/
 CREATE DATABASE happytravel;
 
--- Use the database
--- This line too
+/*
+(en)
+Use the database
+This line can also changed to comment when the database is used
+(ID)
+menggunakan database yang telah dibuat
+baris dibawah ini juga dapat diubah ke comment ketika database sedang atau telah digunakan
+*/
 use happytravel;
 
--- Create table for cities
+-- (en) Create table for cities
+-- (ID) membuat database untuk Cities/kota
 CREATE TABLE Cities (
     CityCode CHAR(3) PRIMARY KEY,
     CityName VARCHAR(50) NOT NULL
 );
 
 -- Create table for accommodations
+-- (ID) membuat database untuk Accomodation/akomodasi/hotel/rumahtamu
 CREATE TABLE Accommodations (
     AccommodationCode VARCHAR(10) PRIMARY KEY,
     CityCode CHAR(3) NOT NULL,
@@ -35,6 +49,7 @@ CREATE TABLE Accommodations (
 );
 
 -- Create table for travel options
+-- (ID) membuat database untuk travel option/opsi perjalanan
 CREATE TABLE TravelOptions (
     TravelCode CHAR(6) PRIMARY KEY,
     CityCode CHAR(3) NOT NULL,
@@ -46,6 +61,7 @@ CREATE TABLE TravelOptions (
 );
 
 -- Create table for trip periods
+-- (ID) membuat database untuk trip periods/periode perjalanan
 CREATE TABLE TripPeriods (
     PeriodCode CHAR(6) PRIMARY KEY,
     PeriodDescription VARCHAR(50) NOT NULL,
@@ -54,6 +70,7 @@ CREATE TABLE TripPeriods (
 );
 
 -- Create table for customers
+-- (ID) membuat database untuk Customers/pelanggan
 CREATE TABLE Customers (
     CustomerID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
@@ -62,6 +79,7 @@ CREATE TABLE Customers (
 );
 
 -- Create table for bookings
+-- (ID) membuat database untuk Bookings/pemesanan
 CREATE TABLE Bookings (
     BookingNumber INT AUTO_INCREMENT PRIMARY KEY,
     AccommodationCode VARCHAR(10) NOT NULL,
@@ -77,6 +95,7 @@ CREATE TABLE Bookings (
 );
 
 -- Create table for participants
+-- (ID) membuat database untuk Participants/peserta
 CREATE TABLE Participants (
     BookingNumber INT NOT NULL,
     SequenceNumber INT NOT NULL,
@@ -87,7 +106,8 @@ CREATE TABLE Participants (
     FOREIGN KEY (BookingNumber) REFERENCES Bookings(BookingNumber)
 );
 
--- Insert data into Cities table
+-- (en) Insert data into Cities table
+-- (ID) Memasukan data ke tabel Cities/kota
 INSERT INTO Cities (CityCode, CityName) VALUES
 ('LON', 'London'),
 ('PAR', 'Paris'),
@@ -101,6 +121,7 @@ INSERT INTO Cities (CityCode, CityName) VALUES
 
 
 -- Insert data into Accommodations table
+-- (ID) Memasukan data ke tabel Accomodation/akomodasi
 INSERT INTO Accommodations (AccommodationCode, CityCode, Name, Address, Email, URL, AccommodationType, StarRating, WalkingDistanceToCenter, WalkingDistanceToBusStop, WalkingDistanceToPlaces, PriceSingleRoomPeak, PriceSingleRoomMid, PriceSingleRoomOff, PriceDoubleRoomPeak, PriceDoubleRoomMid, PriceDoubleRoomOff) VALUES
 ('LON001', 'LON', 'London Hotel', '123 London Street', 'info@londonhotel.com', 'http://www.londonhotel.com', 'Hotel', 4, 2, 1, 3, 100.00, 80.00, 60.00, 150.00, 120.00, 90.00),
 ('PAR002', 'PAR', 'Paris Guesthouse', '456 Paris Avenue', 'info@parisguesthouse.com', 'http://www.parisguesthouse.com', 'GuestHouse', NULL, 1, 2, 1, 80.00, 70.00, 60.00, 120.00, 100.00, 80.00),
@@ -113,6 +134,7 @@ INSERT INTO Accommodations (AccommodationCode, CityCode, Name, Address, Email, U
 ('MAD009', 'MAD', 'Madrid Hotel', '125 Madrid Street', 'info@madridonahotel.com', 'http://www.madridhotel.com', 'Hotel', 3, 6, 3, 2, 130.00, 120.00, 100.00, 135.00, 125.00, 110.00);
 
 -- Insert data into TravelOptions table
+-- (ID) Memasukan data ke tabel TravelOptions/Opsi Perjalanan
 INSERT INTO TravelOptions (TravelCode, CityCode, TravelType, PricePeak, PriceMid, PriceOff) VALUES
 ('TRV001', 'LON', 'Flight', 200.00, 150.00, 100.00),
 ('TRV002', 'PAR', 'Train', 150.00, 120.00, 90.00),
@@ -126,12 +148,14 @@ INSERT INTO TravelOptions (TravelCode, CityCode, TravelType, PricePeak, PriceMid
 ('TRV010', 'MAD', 'Flight', 120.00, 100.00, 80.00);
 
 -- Insert data into TripPeriods table
+-- (ID) Memasukan data ke tabel TripPeriods/Periode Perjalanan
 INSERT INTO TripPeriods (PeriodCode, PeriodDescription, StartDate, EndDate) VALUES
 ('PER001', 'One Week', '2024-07-01', '2024-07-08'),
 ('PER002', 'Midweek', '2024-07-05', '2024-07-09'),
 ('PER003', 'Long Weekend', '2024-07-08', '2024-07-11');
 
 -- Insert data into Customers table
+-- (ID) Memasukan data ke tabel Customers/Pelanggan
 INSERT INTO Customers (Name, Gender, BirthDate) VALUES
 ('John Doe', 'Male', '1990-05-15'),
 ('Jane Smith', 'Female', '1985-09-20'),
@@ -142,12 +166,14 @@ INSERT INTO Customers (Name, Gender, BirthDate) VALUES
 ('Sarah Thompson', 'Female', '1968-06-30');
 
 -- Insert data into Bookings table
+-- (ID) Memasukan data ke tabel Bookings/Pemesanan
 INSERT INTO Bookings (AccommodationCode, PeriodCode, TravelCode, NumberOfSingleRooms, NumberOfDoubleRooms, CustomerID) VALUES
 ('LON001', 'PER001', 'TRV001', 2, 1, 1),
 ('PAR002', 'PER002', 'TRV002', 1, 2, 2),
 ('ROM003', 'PER003', 'TRV003', 1, 1, 3);
 
 -- Insert data into Participants table
+-- (ID) Memasukan data ke tabel Participants/Peserta
 INSERT INTO Participants (BookingNumber, SequenceNumber, Name, Gender, BirthDate) VALUES
 (1, 1, 'John Doe', 'Male', '1990-05-15'),
 (1, 2, 'Jane Doe', 'Female', '1992-08-20'),
@@ -156,8 +182,15 @@ INSERT INTO Participants (BookingNumber, SequenceNumber, Name, Gender, BirthDate
 (2, 2, 'John Smith', 'Male', '1980-07-12'),
 (3, 1, 'Sam Brown', 'Male', '1978-03-10');
 
--- the line below is to view the table
--- just remove the "--" symbol to select and view a table
+/*
+(en)
+the line below is to select and view the table
+just remove the "--" symbol to select and view a table
+(ID)
+Baris dibawah untuk memilih dan melihat tabel
+tinggal hapus simbol -- untuk memilih dan melihat tabel
+*/
+
 -- select * from cities;
 -- select * from Accommodations;
 -- select * from TravelOptions;
@@ -167,9 +200,11 @@ INSERT INTO Participants (BookingNumber, SequenceNumber, Name, Gender, BirthDate
 -- select * from Participants;
 
 /*
-   Kelompok ASJA
-- Acquire
-- Strive
-- Joyfull
-- Accomplish
+   Kelompok ASJA : 
+   - Acquire
+   - Strive
+   - Joyfull
+   - Accomplish
 */
+
+-- Code is made using MySQL with MySQL workbench 8.0
